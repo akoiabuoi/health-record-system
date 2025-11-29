@@ -1,0 +1,4 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+input, button { margin: 5px; padding: 5px; }
+.card { padding: 20px; border: 1px solid #ccc; display: inline-block; }
+button { cursor: pointer; }

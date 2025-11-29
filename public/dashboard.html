@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Health Record System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <button onclick="logout()">Logout</button>
+
+  <h2>Patients List</h2>
+  <button onclick="getPatients()">Refresh List</button>
+  <table id="patientsTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Condition</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Add Patient</h2>
+  <input type="text" id="name" placeholder="Name">
+  <input type="number" id="age" placeholder="Age">
+  <input type="text" id="gender" placeholder="Gender">
+  <input type="text" id="condition" placeholder="Condition">
+  <button onclick="addPatient()">Add Patient</button>
+
+  <h2>Edit Patient</h2>
+  <input type="hidden" id="editId">
+  <input type="text" id="editName" placeholder="Name">
+  <input type="number" id="editAge" placeholder="Age">
+  <input type="text" id="editGender" placeholder="Gender">
+  <input type="text" id="editCondition" placeholder="Condition">
+  <button onclick="updatePatient()">Update Patient</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

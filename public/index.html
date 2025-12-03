@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Health Record System - Login</title>
+  <title>Health Record Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Cloud Health Record Management</h2>
 
-  <div class="card">
-    <input type="text" id="username" placeholder="Enter username">
-    <input type="password" id="password" placeholder="Enter password">
-    <button onclick="login()">Login</button>
-  </div>
+<h2>Health Record Management System</h2>
 
-  <script src="script.js"></script>
+<div class="card">
+  <h3>Login</h3>
+  <input id="loginUser" type="text" placeholder="Username">
+  <input id="loginPass" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<div class="card">
+  <h3>Register</h3>
+  <input id="regUser" type="text" placeholder="Username">
+  <input id="regPass" type="password" placeholder="Password">
+  <button onclick="register()">Register</button>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

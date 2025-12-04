@@ -1,4 +1,4 @@
-// -------------------- REGISTER --------------------
+// -------------------- Create Account --------------------
 async function register() {
   const username = document.getElementById("regUser").value;
   const password = document.getElementById("regPass").value;
@@ -72,6 +72,10 @@ async function addPatient() {
     gender: document.getElementById("gender").value,
     condition: document.getElementById("condition").value
   };
+document.getElementById("name").value = "";
+document.getElementById("age").value = "";
+document.getElementById("gender").value = "";
+document.getElementById("condition").value = "";
 
   const res = await fetch("/patients", {
     method: "POST",
@@ -95,27 +99,49 @@ function editPatient(id, name, age, gender, condition) {
 // -------------------- UPDATE PATIENT --------------------
 async function updatePatient() {
   const id = document.getElementById("editId").value;
+  const name = document.getElementById("editName").value;
+  const age = document.getElementById("editAge").value;
+  const gender = document.getElementById("editGender").value;
+  const condition = document.getElementById("editCondition").value;
 
-  const updated = {
-    name: document.getElementById("editName").value,
-    age: document.getElementById("editAge").value,
-    gender: document.getElementById("editGender").value,
-    condition: document.getElementById("editCondition").value
-  };
+  if (!id) {
+    alert("Please select a patient from the list first.");
+    return;
+  }
+
+  if (!name || !age || !gender || !condition) {
+    alert("All fields are required before updating.");
+    return;
+  }
 
   await fetch(`/patients/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(updated)
+    body: JSON.stringify({ name, age, gender, condition })
   });
 
   alert("Patient updated!");
   getPatients();
+
+  // Clear edit fields AFTER update
+  document.getElementById("editId").value = "";
+  document.getElementById("editName").value = "";
+  document.getElementById("editAge").value = "";
+  document.getElementById("editGender").value = "";
+  document.getElementById("editCondition").value = "";
 }
+
 
 // -------------------- DELETE PATIENT --------------------
 async function deletePatient(id) {
   await fetch(`/patients/${id}`, { method: "DELETE" });
   alert("Patient deleted!");
   getPatients();
+}
+function showCreateAccount() {
+  document.getElementById("createAccountBox").style.display = "block";
+}
+
+function hideCreateAccount() {
+  document.getElementById("createAccountBox").style.display = "none";
 }

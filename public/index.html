@@ -8,20 +8,41 @@
 
 <h2>Health Record Management System</h2>
 
+<!-- LOGIN CARD -->
 <div class="card">
   <h3>Login</h3>
   <input id="loginUser" type="text" placeholder="Username">
   <input id="loginPass" type="password" placeholder="Password">
   <button onclick="login()">Login</button>
+
+  <!-- Button that shows the Create Account form -->
+  <p>Don't have an account?</p>
+  <button onclick="showCreateAccount()">Create Account</button>
 </div>
 
-<div class="card">
-  <h3>Register</h3>
+<!-- CREATE ACCOUNT CARD (HIDDEN AT START) -->
+<div class="card" id="createAccountBox" style="display: none;">
+  <h3>Create Account</h3>
   <input id="regUser" type="text" placeholder="Username">
   <input id="regPass" type="password" placeholder="Password">
-  <button onclick="register()">Register</button>
+  <button onclick="register()">Create Account</button>
+
+  <!-- Button to hide the form -->
+  <button onclick="hideCreateAccount()">Close</button>
 </div>
 
 <script src="script.js"></script>
+
+<!-- SHOW/HIDE FUNCTIONS -->
+<script>
+function showCreateAccount() {
+  document.getElementById("createAccountBox").style.display = "block";
+}
+
+function hideCreateAccount() {
+  document.getElementById("createAccountBox").style.display = "none";
+}
+</script>
+
 </body>
 </html>
